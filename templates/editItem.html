@@ -2,12 +2,12 @@
 {% block content %}
 
 <div class="row">
-	<div class="panel panel-default">
-		<div class="panel-heading" style="background-color: #282726">
-			<h1 style="color: #A7414A"><b>Edit the Item</b></h1>
+	<div class="panel t">
+		<div class="panel-heading" >
+			<h1 ><b>Edit the Item</b></h1>
 		</div>
 		<div class="panel-body">
-			<div class="form-group" style="color:#A37C27;">
+			<div class="form-group">
 				<form action="{{url_for('editItem', item_id = item.id)}}" method = "post">
 					<label for="name">Name:</label>
 					<input type="text" class="form-control" name="name" placeholder="Enter name of the item" value="{{item.name}}"required/>

@@ -14,10 +14,10 @@
 	{% endwith %}
 </div>
 
-<div class="row">
-	<div class="col-md-4">
-		<div class="panel panel-primary" style="background: #92bbfc;">
-			<div class="panel-heading text-center" style="background: #2B303C"><h1><b>Category</b></h1></div>
+<div class="row no-gutters">
+	<div class="col-md-4" style="padding-right:0; padding-left:0;">
+		<div class="panel">
+			<div class="panel-heading text-center bg-primary"><h1><b>Category</b></h1></div>
 			<div class="panel-body">
 				<ul class="list-group">
 					{% for cat in categories %}
@@ -27,18 +27,16 @@
 					{% endfor %}
 				</ul>
 			</div>
-			<div class="panel panel-success">
-				<div class="panel-heading  text-center" >
-					<a href="{{url_for('newItem')}}" class="btn btn-success center-block">Add Item</a>
-				</div>
+			<div class="">
+					<center><a href="{{url_for('newItem')}}"> <button type="button" class="btn btn-success">Add Item</button></a></center>
 			</div>
 		</div>
 	</div>
 
 	
-	<div class="col-md-8 latestItems">
-		<div class="panel panel-primary" style="background: #92bbfc;">
-			<div class="panel-heading text-center" style="background: #2B303C"><h1><b>Latest Items</b></h1></div>
+	<div class="col-md-8" style="padding-right:0; padding-left:0;">
+		<div class="panel">
+			<div class="panel-heading text-center bg-primary" ><h1><b>Latest Items</b></h1></div>
 			<div class="panel-body">
 				<ul class="list-group">
 					{% for item in items %}
