@@ -1,7 +1,7 @@
-   # Item-Catalog Web-App
-    A RESTful web application using the Python framework Flask along with implementing third-party OAuth authentication. It provides a list of items within a variety of categories which comes with CRUD functionality. Authenticated users have the ability to post, edit, and delete their own items.
+    # Item-Catalog Web-App
+A RESTful web application using the Python framework Flask along with implementing third-party OAuth authentication. It provides a list of items within a variety of categories which comes with CRUD functionality. Authenticated users have the ability to post, edit, and delete their own items.
 ### Project Overview
-This project has one main Python module project.py which runs the Flask application. A SQL database is created using the database_setup.py module and you can populate the database with test data using datas.py. The Flask application uses stored HTML templates in the tempaltes folder to build the front-end of the application. 
+This project has one main Python module ```project.py ```which runs the Flask application. A SQL database is created using the ```database_setup.py``` module and you can populate the database with test data using ```datas.py```. The Flask application uses stored HTML templates in the tempaltes folder to build the front-end of the application. 
 
 ### Software Requirements
 - [Python](https://www.python.org/)
