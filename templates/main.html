@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title> Item Catalog </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="//apis.google.com/js/platform.js?onload=start"> </script>
+</head>
+
+<body>
+	<nav class="navbar nav fixed-top navbar-expand-md navbar-dark bg-primary">
+		<div class="container-fluid">
+			<a style="color:black; font-size: 25px;" href="{{url_for('showCatalog')}}">
+				<b>Item Catalog </b>
+				
+			</a>
+
+			<ul class=" nav navbar-nav pull-right">
+				<li id="loginBut">
+					<a style="color:black; " href="{{url_for('showLogin')}}"> Login</a>
+				</li>
+				<li id="logoutBut">
+					<a style="color:black;" href="{{url_for('gdisconnect')}}" class="pull-right">Logout</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container main-block">
+		<b>
+			{% block content %} {% endblock %}
+		</b>
+	</div>
+
+</body>
+
+<!-- To toggle between login and logout buttons -->
+<script>
+	var flag = {{ loggedIn }};
+	if (flag == 0) {
+		$('#logoutBut').attr('style', 'display: none')
+		$('#loginBut').attr('style', 'display: block')
+	}
+	if (flag == 1) {
+		$('#loginBut').attr('style', 'display: none')
+		$('#logoutBut').attr('style', 'display: block')
+	}
+</script>
+
+</html>
