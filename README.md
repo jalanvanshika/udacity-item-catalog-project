@@ -32,7 +32,7 @@ $ vagrant ssh
 ```sh
 $ cd /vagrant
 ```
-**4.First you need to install the dependencies:**
+**4. Install the dependencies:**
 ```sh
 $ pip3 install -r requirements.txt
 ```
