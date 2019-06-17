@@ -32,11 +32,15 @@ $ vagrant ssh
 ```sh
 $ cd /vagrant
 ```
-**4. Run the server by:**
+**4.First you need to install the dependencies:**
+```sh
+$ pip3 install -r requirements.txt
+```
+**5. Run the server by:**
 ```sh
 $ python project.py
 ```
-**5. Access the application in your browser through:**
+**6. Access the application in your browser through:**
 ```sh
 http://localhost:5000/
 ```
