@@ -9,8 +9,8 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = 'User'
 
-    id = Column(Integer, primary_key= True)
-    name = Column(String(250), nullable = False)
+    id = Column(Integer, primary_key=True)
+    name = Column(String(250), nullable=False)
     email = Column(String(250), nullable=False)
     image = Column(String(250))
 

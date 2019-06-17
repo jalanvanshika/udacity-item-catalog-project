@@ -33,7 +33,7 @@ CLIENT_ID = json.loads(
 
 loggedIn = 0
 
-#Checking if user already exists
+# Checking if user already exists
 def userExists():
     return session.query(User).filter_by(email= \
                                          login_session['email']).one_or_none()
@@ -167,6 +167,7 @@ def gdisconnect():
     print 'In gdisconnect access token is %s', access_token
     print 'User name is: '
     print login_session['username']
+    # NOQA
     url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' % login_session['access_token']
     h = httplib2.Http()
     result = h.request(url, 'GET')[0]
@@ -210,7 +211,8 @@ def showCatalog():
 
     categories = session.query(Category).all()
 
-    return render_template('catalog.html', categories = categories, items= items, loggedIn = loggedIn)
+    return render_template(
+        'catalog.html', categories = categories, items= items, loggedIn = loggedIn)
 
  #Show all items by a particular category
 @app.route('/category/<int:category_id>/')
@@ -221,7 +223,8 @@ def categoryMenu(category_id):
     if 'username' in login_session:
         loggedIn = 1
     
-    return render_template('showCategory.html', items = items, category = category, loggedIn = loggedIn)
+    return render_template(
+        'showCategory.html', items = items, category = category, loggedIn = loggedIn)
 
 #Show data of a particular item
 @app.route('/category/item/<int:item_id>/')
@@ -284,7 +287,9 @@ def editItem(item_id):
     # Checking if the email of the creater is same as the email of the logged in user
     if not login_session['email'] == user.email:
         print "You are not creater of this item. Only creater can change edit/delete the item."
-        return render_template('showItem.html', item = item, loggedIn = loggedIn, errorMsg='You are not creater of this item. Only creater can update/delete item.')
+        return render_template(
+            'showItem.html', item = item, loggedIn = loggedIn, /
+            errorMsg='You are not creater of this item. Only creater can update/delete item.')
 
         
     if request.method == 'POST':
@@ -299,7 +304,8 @@ def editItem(item_id):
     else:
         item = session.query(Item).filter_by(id = item_id).one()
         categories = session.query(Category).all()
-        return render_template('editItem.html', categories = categories, loggedIn = loggedIn, item = item)
+        return render_template(
+            'editItem.html', categories = categories, loggedIn = loggedIn, item = item)
 
 
 #To Confirm if the user that clicked delete is owner of the item or not 
@@ -317,7 +323,9 @@ def confirmDeleteItem(item_id):
 
     # Checking if the email of the creater is same as the email of the logged in user
     if not login_session['email'] == user.email:
-        return render_template('showItem.html', item = item, loggedIn = loggedIn, errorMsg='You are not creater of this item. Only creater can update/delete item.')
+        return render_template(
+            'showItem.html', item = item, loggedIn = loggedIn, / 
+            errorMsg='You are not creater of this item. Only creater can update/delete item.')
         
     return render_template('deleteItem.html', item = item, loggedIn = loggedIn)
 
@@ -338,7 +346,8 @@ def deleteItem(item_id):
     session.delete(item)
     session.commit()
 
-    return redirect(url_for('categoryMenu', category_id = cat.id, loggedIn = loggedIn))
+    return redirect(
+        url_for('categoryMenu', category_id = cat.id, loggedIn = loggedIn))
 
 
 '''JSON ENDPOINTS'''
